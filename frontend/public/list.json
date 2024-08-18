@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "The Enigma of Echo Falls",
+        "title": "A Mystery Unveiled",
+        "price": "Free",
+        "category": "Free",
+        "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 2,
+        "name": "Whispers in the Mist",
+        "title": "Secrets of the Foggy Isles",
+        "price": "Free",
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 3,
+        "name": "The Lost Labyrinth",
+        "title": "Unraveling Ancient Puzzles",
+        "price": "Free",
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 4,
+        "name": "Echoes of Eternity",
+        "title": "Time Travel Chronicles",
+        "price": "Free",
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 5,
+        "name": "It End With Us",
+        "title": "Romance",
+        "price": "$11.99",
+        "category": "Mystery",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 6,
+        "name": "Whispers of the Forgotten Forest",
+        "title": "Enchanted Tales",
+        "price": "$8.99",
+        "category": "Fantasy",
+        "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 7,
+        "name": "The Midnight Manuscript",
+        "title": "Cryptic Chronicles",
+        "price": "$10.99",
+        "category": "Supernatural",
+        "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 8,
+        "name": "The Whispering Gallery",
+        "title": "Art Heist Mysteries",
+        "price": "$13.99",
+        "category": "Suspense",
+        "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 9,
+        "name": "Shadows of the Forgotten Realm",
+        "title": "Epic Fantasy Saga",
+        "price": "$12.99",
+        "category": "Fantasy",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 10,
+        "name": "The Silent Specter",
+        "title": "Ghostly Encounters",
+        "price": "$9.99",
+        "category": "Horror",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 11,
+        "name": "Echoes of the Abyss",
+        "title": "Deep Sea Mysteries",
+        "price": "$14.99",
+        "category": "Adventure",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    },
+    {
+        "id": 12,
+        "name": "The Cursed Chronicles",
+        "title": "Tales of the Haunted Mansion",
+        "price": "$10.99",
+        "category": "Horror",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1723734617~exp=1723738217~hmac=5125144e4a38ceaf431dc1856b8573d7f02b782be878d3ac3ac7322388eb4d79&w=740"
+    }
+]
