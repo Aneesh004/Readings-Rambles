@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const bookSchema=mongoose.Schema({
     name:String,
-    price:String,  // Changed to String to handle both numbers and text
+    price:String,  
     category:String,
     image:String,
     title:String

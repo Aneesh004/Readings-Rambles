@@ -1,52 +1,84 @@
-import React, { useEffect, useState } from 'react';
-import Cards from './Cards';
-import axios from "axios";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import Cards from "./Cards";
+import { Link } from "react-router-dom";
+import api from "../api/client";
 
 function Course() {
-  const[book,setBook]=useState([])
-  useEffect(() =>{
-    const getBook=async()=>{
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBooks = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book");
-        console.log(res.data)
-        setBook(res.data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getBook();
-  },[]);
-  return (<>
-
-    <div className="max-w-screen-5xl container mx-auto md:px-20 px-4 ">
-      <div className='mt-28 items-center justify-center text-center '>
-        <h1 className='text-2xl md:text-4xl text-black dark:text-white'>
-          We're Delighted to have your <span className='text-pink-400'>here!</span>
-        </h1>
-
-        <p className=' mt-12 text-black dark:text-white'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
-          rerum quo tenetur nostrum cupiditate eum odit eligendi? Totam natus
-          explicabo impedit amet maiores quibusdam? Magni dolorum ullam rem enim rerum.
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil pariatur quis 
-          dignissimos consequatur eius alias recusandae nesciunt fugit, molestias libero 
-          dolorem dolor soluta maiores, necessitatibus optio accusantium. Sed, molestias id!
-        </p>
-        <Link to="/">
-        <button className='mt-6 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-700 duration-300 '>Home</button>
-        </Link>
-      </div>
-      <div className='mt-12 grid grid-cols-1 md:grid-cols-3'>
-        {
-          book.map((item) => (
-            <Cards key={item.id} item={item} />
-          ))
+        const response = await api.get("/book");
+        if (Array.isArray(response.data) && response.data.length > 0) {
+          setBooks(response.data);
+        } else {
+          throw new Error("No data returned from backend");
         }
+      } catch (error) {
+        console.warn("Backend fetch failed, attempting local fallback:", error.message);
+        try {
+          const fallback = await fetch("/list.json");
+          const data = await fallback.json();
+          setBooks(data);
+        } catch (fallbackErr) {
+          console.error("Fallback load failed:", fallbackErr);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBooks();
+  }, []);
+
+  return (
+    <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 py-8">
+      <div className="mt-20 flex flex-col items-center text-center">
+        <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-teal-500 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          {new Date().getFullYear()} READING CHALLENGE
+        </h1>
+        <p className="mt-6 text-lg text-gray-700 dark:text-gray-300 max-w-3xl">
+          Welcome to the <span className="font-bold">Reading Challenge</span>! Explore our handpicked selection of inspiring books. Join our vibrant community, enjoy exclusive updates, and discover your next great literary adventure!
+        </p>
+      </div>
+
+      <div className="mt-12 bg-slate-200 dark:bg-slate-800 text-gray-900 dark:text-gray-100 p-8 rounded-2xl shadow-sm">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center">
+          How to Participate?
+        </h2>
+        <ol className="mt-6 text-base md:text-lg list-decimal list-inside space-y-4 max-w-4xl mx-auto">
+          <li>
+            <strong>Join the Challenge:</strong> Sign in for the Reading Challenge to unlock recommendations and connect with our reading community.
+          </li>
+          <li>
+            <strong>Connect & Discuss:</strong> Dive into community discussions, meetups, and literary circles.{" "}
+            <Link to="/contact" className="text-purple-600 dark:text-purple-400 font-semibold hover:underline">
+              Click here to write your review and share your thoughts.
+            </Link>
+          </li>
+          <li>
+            <strong>Share Your Journey:</strong> Share your reading milestones on social media with #LitChallenge.
+          </li>
+        </ol>
+      </div>
+
+      {/* Book Cards */}
+      <div className="mt-12">
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <span className="loading loading-spinner loading-lg text-primary"></span>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {books.map((item) => (
+              <Cards key={item._id || item.id} item={item} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
-
-  </>
   );
 }
 

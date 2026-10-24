@@ -1,31 +1,45 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import axios from "axios";
-
-import Cards from './Cards';
+import api from "../api/client";
+import Cards from "./Cards";
 
 function Freebook() {
-  const[book,setBook] = useState([]);
-  useEffect(() =>{
-    const getBook=async()=>{
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBooks = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book");
-        console.log(res.data);
-        const data = res.data.filter((data) => data.category === "Free");
-        setBook(data);
+        const res = await api.get("/book");
+        if (Array.isArray(res.data) && res.data.length > 0) {
+          const freeBooks = res.data.filter((item) => item.category === "Free");
+          setBooks(freeBooks.length > 0 ? freeBooks : res.data);
+        } else {
+          throw new Error("No data returned from backend");
+        }
       } catch (error) {
-        console.log(error);
+        console.warn("Backend books fetch failed, attempting local fallback:", error.message);
+        try {
+          const fallback = await fetch("/list.json");
+          const data = await fallback.json();
+          const freeBooks = data.filter((item) => item.category === "Free");
+          setBooks(freeBooks);
+        } catch (fallbackErr) {
+          console.error("Fallback load failed:", fallbackErr);
+        }
+      } finally {
+        setLoading(false);
       }
     };
-    getBook();
-  },[]);
-  
 
-  var settings = {
+    fetchBooks();
+  }, []);
+
+  const settings = {
     dots: true,
-    infinite: true,
+    infinite: books.length > 3,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -36,49 +50,57 @@ function Freebook() {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
+          infinite: books.length > 3,
+          dots: true,
+        },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 0,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <>
-      <div className='max-w-screen-2xl container mx-auto  md:px-20 px-4 dark:bg-slate-900 dark:text-white'>
-        <div className="pt-0"> {/* Added pt-0 to remove any unintended top padding */}
-        <br />
-        <br />
-          <h1 className='text-black text-xl font-bold mb-0 dark:text-white'>Free Books</h1>
-          <p className='text-black dark:text-white'>
-            Explore a world of captivating reads with our handpicked selection of free books. Dive into stories and knowledge without spending a penny—because the joy of reading should be limitless.
-          </p>
-        </div>
+    <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 dark:bg-slate-900 dark:text-white">
+      <div className="pt-8">
+        <h1 className="text-4xl font-bold mb-6">
+          <span className="bg-gradient-to-r from-teal-500 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            Recommendations of the Month!
+          </span>
+        </h1>
+        <p className="text-lg text-gray-800 dark:text-gray-300">
+          Dive into our vibrant picks for this month and uncover exceptional reads that will spark your imagination. Let our colorful recommendations guide you to your next great literary journey.
+        </p>
+      </div>
 
-        <div>
+      <div className="py-10">
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <span className="loading loading-spinner loading-lg text-primary"></span>
+          </div>
+        ) : books.length > 0 ? (
           <Slider {...settings}>
-            {book.map((item)=> (
-              <Cards item={item} key={item.id}/>
+            {books.map((item) => (
+              <Cards item={item} key={item._id || item.id} />
             ))}
           </Slider>
-        </div>
+        ) : (
+          <p className="text-center text-gray-500 py-10">No books found.</p>
+        )}
       </div>
-    </>
+    </div>
   );
 }
 
