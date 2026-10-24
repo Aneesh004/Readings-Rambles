@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Readings & Rambles 📚
 
 **Readings & Rambles** is an online reading community for book lovers of all ages. It brings readers together through book clubs, live discussion sessions, monthly reading challenges and curated recommendations, so reading becomes something you do with other people instead of alone.
@@ -101,3 +102,6 @@ To create a production build, run `npm run build` in `frontend/`.
 ## License
 
 ISC
+=======
+**Readings and Rambles** is a comprehensive platform dedicated to book enthusiasts. It offers a space for users to explore and discuss various books, write personal notes, and vote for their favorite reads. The platform features an interactive section where members can access book details, participate in monthly book polls, and engage with a vibrant community of readers. Whether you're seeking recommendations or want to share your thoughts on a book, Readings and Rambles provides a rich, engaging experience for all book lovers.
+>>>>>>> 5f618705a4474e7704baa6e433b8ba7ea18481f1

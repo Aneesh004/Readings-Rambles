@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Readings & Rambles 
 
 **Readings & Rambles** is an online reading community for book lovers of all ages. It connects readers through book clubs, live discussion sessions, monthly reading challenges and curated recommendations. This is the website's frontend.
@@ -31,3 +32,6 @@ Book data comes from the backend API. If the backend is unavailable (for example
 - **HTTP Client**: Axios (shared client in `src/api/client.js`)
 - **Notifications**: React Hot Toast
 - **Carousel**: React Slick
+=======
+
+>>>>>>> 5f618705a4474e7704baa6e433b8ba7ea18481f1
