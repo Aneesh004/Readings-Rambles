@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Readings & Rambles 📚
 
 **Readings & Rambles** is an online reading community for book lovers of all ages. It brings readers together through book clubs, live discussion sessions, monthly reading challenges and curated recommendations, so reading becomes something you do with other people instead of alone.
@@ -52,56 +51,5 @@ bookstore/
     └── .env.example  # Frontend environment template
 ```
 
-## Getting started
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) 18+
-- A MongoDB database (local or [MongoDB Atlas](https://www.mongodb.com/atlas))
-
-### Backend
-
-```bash
-cd backend
-npm install
-cp .env.example .env   # then fill in your values
-npm start              # runs with nodemon on http://localhost:4001
-```
-
-`.env` values:
-```env
-PORT=4001
-MongoDBURI=your_mongodb_connection_string
-FRONTEND_URL=http://localhost:5173
-```
-
-### Frontend
-
-```bash
-cd frontend
-npm install
-cp .env.example .env
-npm run dev            # http://localhost:5173
-```
-
-`.env` values:
-```env
-VITE_API_URL=http://localhost:4001
-```
-
-To create a production build, run `npm run build` in `frontend/`.
-
-## API endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/` | Health check |
-| `GET` | `/book` | List all books |
-| `POST` | `/user/signup` | Register a user (`fullname`, `email`, `password`) |
-| `POST` | `/user/login` | Log in (`email`, `password`) |
-
-## License
-
-ISC
-=======
-**Readings and Rambles** is a comprehensive platform dedicated to book enthusiasts. It offers a space for users to explore and discuss various books, write personal notes, and vote for their favorite reads. The platform features an interactive section where members can access book details, participate in monthly book polls, and engage with a vibrant community of readers. Whether you're seeking recommendations or want to share your thoughts on a book, Readings and Rambles provides a rich, engaging experience for all book lovers.
 >>>>>>> 5f618705a4474e7704baa6e433b8ba7ea18481f1
