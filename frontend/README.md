@@ -31,5 +31,4 @@ Book data comes from the backend API. If the backend is unavailable (for example
 - **HTTP Client**: Axios (shared client in `src/api/client.js`)
 - **Notifications**: React Hot Toast
 - **Carousel**: React Slick
-=======
 
